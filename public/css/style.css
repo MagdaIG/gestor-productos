@@ -1,11 +1,11 @@
-/* Variables CSS - Paleta Moderna y Elegante */
+/* Variables CSS - Paleta Profesional y Moderna */
 :root {
-  /* Colores principales - Azul moderno */
-  --primary: #2563eb;
-  --primary-dark: #1d4ed8;
+  /* Colores principales - Azul profesional */
+  --primary: #1e40af;
+  --primary-dark: #1e3a8a;
   --primary-light: #3b82f6;
   --secondary: #64748b;
-  --accent: #06b6d4;
+  --accent: #059669;
 
   /* Colores de fondo */
   --bg-primary: #ffffff;
@@ -13,7 +13,7 @@
   --bg-tertiary: #f1f5f9;
   --bg-dark: #0f172a;
   --bg-card: #ffffff;
-  --bg-overlay: rgba(0, 0, 0, 0.5);
+  --bg-overlay: rgba(0, 0, 0, 0.6);
 
   /* Colores de texto */
   --text-primary: #0f172a;
@@ -47,8 +47,8 @@
   --border-radius-xl: 1rem;
   --border-color: #e2e8f0;
 
-  /* Sombras */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  /* Sombras profesionales */
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
@@ -89,6 +89,8 @@ body {
   position: sticky;
   top: 0;
   z-index: 100;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .header-content {
@@ -103,6 +105,12 @@ body {
   text-decoration: none;
   font-size: 1.5rem;
   font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.logo h1 a:hover {
+  color: var(--primary-dark);
+  transform: translateY(-1px);
 }
 
 .nav-list {
@@ -115,14 +123,16 @@ body {
   color: var(--text-secondary);
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
   padding: var(--spacing-sm) var(--spacing-md);
   border-radius: var(--border-radius);
+  position: relative;
 }
 
 .nav-link:hover {
   color: var(--primary);
   background: var(--bg-tertiary);
+  transform: translateY(-1px);
 }
 
 .mobile-menu-toggle {
@@ -229,18 +239,21 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 1rem;
+  position: relative;
+  overflow: hidden;
 }
 
 .btn-primary {
   background: var(--primary);
   color: var(--text-white);
   border: 1px solid var(--primary);
+  box-shadow: var(--shadow-sm);
 }
 
 .btn-primary:hover {
   background: var(--primary-dark);
   border-color: var(--primary-dark);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
 
@@ -248,13 +261,15 @@ body {
   background: var(--bg-primary);
   color: var(--text-secondary);
   border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
 }
 
 .btn-secondary:hover {
   background: var(--bg-tertiary);
   border-color: var(--primary);
   color: var(--primary);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .btn-outline {
@@ -266,19 +281,21 @@ body {
 .btn-outline:hover {
   background: var(--primary);
   color: var(--text-white);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .btn-danger {
   background: var(--error);
   color: var(--text-white);
   border: 1px solid var(--error);
+  box-shadow: var(--shadow-sm);
 }
 
 .btn-danger:hover {
   background: #dc2626;
   border-color: #dc2626;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
 
@@ -405,8 +422,9 @@ body {
 }
 
 .product-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary);
 }
 
 .product-header {
@@ -491,7 +509,7 @@ body {
   background: var(--bg-card);
   padding: var(--spacing-2xl);
   border-radius: var(--border-radius-lg);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-md);
   border: 1px solid var(--border-color);
 }
 
@@ -522,7 +540,7 @@ body {
 .form-textarea:focus {
   outline: none;
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
 }
 
 .form-textarea {
@@ -577,6 +595,8 @@ body {
 .file-upload-label:hover {
   border-color: var(--primary);
   background: var(--bg-tertiary);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
 }
 
 .file-upload-label i {
@@ -721,6 +741,7 @@ body {
   background: var(--bg-primary);
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-2xl);
+  border: 1px solid var(--border-color);
   max-width: 500px;
   width: 90%;
   max-height: 90vh;
