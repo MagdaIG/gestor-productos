@@ -1,0 +1,33 @@
+[
+  {
+    "id": "1759198953261",
+    "nombre": "Smartphone Samsung",
+    "descripcion": "Teléfono inteligente con cámara de alta resolución",
+    "precio": 599.99,
+    "fechaCreacion": "2025-09-30T02:22:33.261Z"
+  },
+  {
+    "id": "1759206637766",
+    "nombre": "Tablet iPad",
+    "descripcion": "Tablet de Apple con pantalla Retina de 10.9 pulgadas",
+    "precio": 650000,
+    "imagen": null,
+    "fechaCreacion": "2025-09-30T04:30:37.767Z"
+  },
+  {
+    "id": "1759206641464",
+    "nombre": "Auriculares Sony",
+    "descripcion": "Auriculares inalámbricos con cancelación de ruido",
+    "precio": 120000,
+    "imagen": null,
+    "fechaCreacion": "2025-09-30T04:30:41.464Z"
+  },
+  {
+    "id": "1759206652420",
+    "nombre": "Smartwatch Apple",
+    "descripcion": "Reloj inteligente con GPS y monitor de salud",
+    "precio": 350000,
+    "imagen": null,
+    "fechaCreacion": "2025-09-30T04:30:52.420Z"
+  }
+]

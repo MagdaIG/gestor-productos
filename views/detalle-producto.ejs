@@ -1,0 +1,62 @@
+<%- include('partials/header') %>
+
+<div class="page-header">
+    <a href="/productos" class="btn btn-secondary">
+        <i class="fas fa-arrow-left"></i>
+        Volver a Productos
+    </a>
+</div>
+
+<div class="product-detail">
+    <div class="product-detail-card">
+        <div class="product-detail-image-container">
+            <% if (producto.imagen) { %>
+                <img src="<%= producto.imagen %>" alt="<%= producto.nombre %>" class="product-detail-image">
+            <% } else { %>
+                <div class="no-image-placeholder-large">
+                    <i class="fas fa-image"></i>
+                    <span>Sin imagen disponible</span>
+                </div>
+            <% } %>
+        </div>
+        <div class="product-detail-header">
+            <h1 class="product-detail-title"><%= producto.nombre %></h1>
+            <div class="product-detail-price"><%= new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(producto.precio) %></div>
+        </div>
+
+        <div class="product-detail-body">
+            <div class="product-detail-section">
+                <h3>Descripción</h3>
+                <p><%= producto.descripcion %></p>
+            </div>
+
+            <div class="product-detail-meta">
+                <div class="meta-item">
+                    <i class="fas fa-tag"></i>
+                    <span>ID: <%= producto.id %></span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-calendar"></i>
+                    <span>Agregado: <%= new Date(producto.fechaCreacion).toLocaleDateString('es-ES') %></span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Hora: <%= new Date(producto.fechaCreacion).toLocaleTimeString('es-ES') %></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-detail-actions">
+            <a href="/productos" class="btn btn-primary">
+                <i class="fas fa-list"></i>
+                Ver Todos los Productos
+            </a>
+            <a href="/agregar-producto" class="btn btn-secondary">
+                <i class="fas fa-plus"></i>
+                Agregar Otro Producto
+            </a>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer') %>

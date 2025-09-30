@@ -1,0 +1,121 @@
+<%- include('partials/header') %>
+
+<div class="page-header">
+    <h1 class="page-title">Editar Producto</h1>
+    <p class="page-subtitle">Modifica la información del producto</p>
+</div>
+
+<div class="form-container">
+    <form action="/editar-producto/<%= producto.id %>" method="POST" enctype="multipart/form-data" class="product-form">
+        <% if (typeof error !== 'undefined' && error) { %>
+            <div class="alert alert-error">
+                <i class="fas fa-exclamation-triangle"></i>
+                <%= error %>
+            </div>
+        <% } %>
+
+        <div class="form-group">
+            <label for="nombre" class="form-label">Nombre del Producto</label>
+            <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-input"
+                placeholder="Ej: Laptop Gaming"
+                value="<%= producto.nombre %>"
+                required
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="descripcion" class="form-label">Descripción</label>
+            <textarea
+                id="descripcion"
+                name="descripcion"
+                class="form-textarea"
+                placeholder="Describe las características del producto..."
+                rows="4"
+                required
+            ><%= producto.descripcion %></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="precio" class="form-label">Precio en Pesos Chilenos</label>
+            <div class="input-group">
+                <span class="input-prefix">$</span>
+                <input
+                    type="text"
+                    id="precio"
+                    name="precio"
+                    class="form-input"
+                    placeholder="100000"
+                    value="<%= producto.precio %>"
+                    required
+                >
+            </div>
+            <small style="color: var(--text-muted); font-size: 0.875rem; margin-top: var(--spacing-xs); display: block;">
+                Ingresa el precio sin puntos ni comas (ej: 150000)
+            </small>
+        </div>
+
+        <div class="form-group">
+            <label for="imagen" class="form-label">Gestión de Imagen</label>
+
+            <% if (producto.imagen) { %>
+                <div class="current-image">
+                    <div class="current-image-header">
+                        <h4>Imagen actual:</h4>
+                        <button type="button" class="btn btn-danger btn-sm" onclick="confirmRemoveCurrentImage('<%= producto.id %>')">
+                            <i class="fas fa-trash"></i>
+                            Eliminar Imagen
+                        </button>
+                    </div>
+                    <img src="<%= producto.imagen %>" alt="Imagen actual" class="current-image-preview">
+                    <p class="image-options-text">Puedes cambiar la imagen seleccionando una nueva abajo, o eliminarla completamente.</p>
+                </div>
+            <% } else { %>
+                <div class="no-current-image">
+                    <p><i class="fas fa-info-circle"></i> Este producto no tiene imagen actualmente</p>
+                </div>
+            <% } %>
+
+            <div class="file-upload-container">
+                <input
+                    type="file"
+                    id="imagen"
+                    name="imagen"
+                    class="file-input"
+                    accept="image/*"
+                >
+                <label for="imagen" class="file-upload-label">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <span class="file-upload-text"><%= producto.imagen ? 'Cambiar imagen' : 'Seleccionar imagen' %></span>
+                    <span class="file-upload-hint">o arrastra una imagen aquí</span>
+                </label>
+                <div class="file-preview" id="file-preview" style="display: none;">
+                    <img id="preview-image" src="" alt="Vista previa">
+                    <button type="button" class="remove-image" onclick="removeImage()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+
+            <small style="color: var(--text-muted); font-size: 0.875rem; margin-top: var(--spacing-xs); display: block;">
+                Formatos permitidos: JPG, PNG, GIF. Tamaño máximo: 5MB
+            </small>
+        </div>
+
+        <div class="form-actions">
+            <a href="/productos" class="btn btn-secondary">
+                <i class="fas fa-arrow-left"></i>
+                Cancelar
+            </a>
+            <button type="submit" class="btn btn-primary">
+                <i class="fas fa-save"></i>
+                Guardar Cambios
+            </button>
+        </div>
+    </form>
+</div>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,70 @@
+<%- include('partials/header') %>
+
+<div class="page-header">
+    <h1 class="page-title">Lista de Productos</h1>
+    <p class="page-subtitle">Gestiona tu inventario de productos</p>
+    <a href="/agregar-producto" class="btn btn-primary">
+        <i class="fas fa-plus"></i>
+        Agregar Nuevo Producto
+    </a>
+</div>
+
+<% if (productos && productos.length > 0) { %>
+    <div class="products-grid">
+        <% productos.forEach(producto => { %>
+            <div class="product-card">
+                <div class="product-image-container">
+                    <% if (producto.imagen) { %>
+                        <img src="<%= producto.imagen %>" alt="<%= producto.nombre %>" class="product-image">
+                    <% } else { %>
+                        <div class="no-image-placeholder">
+                            <i class="fas fa-image"></i>
+                            <span>Sin imagen disponible</span>
+                        </div>
+                    <% } %>
+                </div>
+                <div class="product-header">
+                    <h3 class="product-name"><%= producto.nombre %></h3>
+                    <span class="product-price"><%= new Intl.NumberFormat('es-CL', { style: 'currency', currency: 'CLP', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(producto.precio) %></span>
+                </div>
+                <div class="product-body">
+                    <p class="product-description"><%= producto.descripcion %></p>
+                    <div class="product-meta">
+                        <span class="product-date">
+                            <i class="fas fa-calendar"></i>
+                            <%= new Date(producto.fechaCreacion).toLocaleDateString('es-ES') %>
+                        </span>
+                    </div>
+                </div>
+                <div class="product-actions">
+                    <a href="/producto/<%= producto.id %>" class="btn btn-outline">
+                        <i class="fas fa-eye"></i>
+                        Ver Detalles
+                    </a>
+                    <a href="/editar-producto/<%= producto.id %>" class="btn btn-secondary">
+                        <i class="fas fa-edit"></i>
+                        Editar
+                    </a>
+                    <button onclick="confirmDeleteProduct('<%= producto.id %>', '<%= producto.nombre %>')" class="btn btn-danger">
+                        <i class="fas fa-trash"></i>
+                        Eliminar
+                    </button>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+<% } else { %>
+    <div class="empty-state">
+        <div class="empty-icon">
+            <i class="fas fa-box-open"></i>
+        </div>
+        <h3>No hay productos disponibles</h3>
+        <p>Comienza agregando tu primer producto a la tienda</p>
+        <a href="/agregar-producto" class="btn btn-primary">
+            <i class="fas fa-plus"></i>
+            Agregar Primer Producto
+        </a>
+    </div>
+<% } %>
+
+<%- include('partials/footer') %>

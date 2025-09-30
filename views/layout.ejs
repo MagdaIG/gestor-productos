@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %> - Tienda en Línea</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1><a href="/">Tienda Online</a></h1>
+                </div>
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="/" class="nav-link">Inicio</a></li>
+                        <li><a href="/productos" class="nav-link">Productos</a></li>
+                        <li><a href="/agregar-producto" class="nav-link">Agregar Producto</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <%- body %>
+        </div>
+    </main>
+
+    <!-- FOOTER NUEVO - Magdalena Inalaf -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Magdalena Inalaf</h3>
+                    <p>Desarrolladora Full Stack</p>
+                </div>
+                <div class="footer-links">
+                    <a href="https://github.com/MagdaIG" target="_blank" rel="noopener noreferrer" class="footer-link">
+                        <i class="fab fa-github"></i>
+                        GitHub
+                    </a>
+                    <a href="https://www.linkedin.com/in/minalaf/" target="_blank" rel="noopener noreferrer" class="footer-link">
+                        <i class="fab fa-linkedin"></i>
+                        LinkedIn
+                    </a>
+                    <a href="https://inalaf.ca/" target="_blank" rel="noopener noreferrer" class="footer-link">
+                        <i class="fas fa-globe"></i>
+                        Sitio Web
+                    </a>
+                    <a href="mailto:magda.inalaf@gmail.com" class="footer-link">
+                        <i class="fas fa-envelope"></i>
+                        Email
+                    </a>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Magdalena Inalaf. Todos los derechos reservados.</p>
+                    <p>Desarrollado con Node.js y Express</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>
